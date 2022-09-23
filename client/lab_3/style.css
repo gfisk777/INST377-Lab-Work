@@ -263,5 +263,7 @@ div.carousel {
 
 .prev:hover,
 .next:hover {
+  background-color: azure;
+  color: #4a4a4a;
   /* Pick a good background colour for your hover pseudoclass */
 }
