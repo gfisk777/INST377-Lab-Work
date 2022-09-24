@@ -21,11 +21,11 @@ const totalSlides = slidesArray.length;
 function updateSlidePosition() {
   slidesArray.forEach((slide) => {
     slide.classList.remove('visible');
-    slide.classList.add('hidden';
+    slide.classList.add('hidden');
   });
-  console.log(slidePosition);
+  console.log(slidePosition)
   slides[slidePosition].classList.add('visible');
-  }
+
 
   // Using the .forEach array method, (array.forEach((element) => { per-element work goes here }))
   // loop through all the slides in your slideArray
@@ -49,9 +49,10 @@ function moveToNextSlide() {
   */
   updateSlidePosition(); // this is how you call a function within a function
 }
+
 function moveToPrevSlide() {
   if (slidePosition === 0) {
-    slidePosition = totalSlides -1;
+    slidePosition = 3;
   } else {
     slidePosition -= 1;
   }
@@ -72,4 +73,4 @@ document.querySelector('.prev')
   .addEventListener('click', () => {
     console.log('clicked prev');
     moveToPrevSlide();
-  });
+  })
