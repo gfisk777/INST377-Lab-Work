@@ -73,4 +73,4 @@ document.querySelector('.prev')
   .addEventListener('click', () => {
     console.log('clicked prev');
     moveToPrevSlide();
-  })
+  });
