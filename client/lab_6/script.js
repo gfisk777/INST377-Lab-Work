@@ -10,30 +10,26 @@
     Under this comment place any utility functions you need - like an inclusive random number selector
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 */
-
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-
 function injectHTML(list) {
   console.log('fired injectHTML');
   const target = document.querySelector('#restaurant_list');
   target.innerHTML = '';
 
-  const listEl = document.createElement('ol');
-  target.appendChild(listEl);
-
+  const listEL = document.createElement('ol');
+  target.appendChild(listEL);
   list.forEach((item) => {
     const el = document.createElement('li');
     el.innerText = item.name;
-    listEl.appendChild(el);
+    listEL.appendChild(el);
   });
 
-
-  /*
+/*
   ## JS and HTML Injection
     There are a bunch of methods to inject text or HTML into a document using JS
     Mainly, they're considered "unsafe" because they can spoof a page pretty easily
@@ -47,18 +43,18 @@ function injectHTML(list) {
     - using a .forEach method, inject a list element into your index.html for every element in the list
     - Display the name of that restaurant and what category of food it is
 */
-}
 
 function processRestaurants(list) {
   console.log('fired restaurants list');
-  const range = [...Array(15).keys()];
+  const range = [...Array(15).keys()]; 
   const newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length);
     return list[index];
-  });
+  })
   return newArray;
+}
 
-  /*
+/*
     ## Process Data Separately From Injecting It
       This function should accept your 1,000 records
       then select 15 random records
@@ -76,7 +72,6 @@ function processRestaurants(list) {
     - Return only their name, category, and location
     - Return the new list of 15 restaurants so we can work on it separately in the HTML injector
   */
-}
 
 async function mainEvent() {
   /*
@@ -88,7 +83,7 @@ async function mainEvent() {
 
   // the async keyword means we can make API requests
   const form = document.querySelector('.main_form'); // get your main form so you can do JS with it
-  const submit = document.querySelector('#get-resto'); // get a reference to your submit button
+  const submit = document.querySelector('#submit'); // get a reference to your submit button
   const loadAnimation = document.querySelector('.lds-ellipsis');
   submit.style.display = 'none'; // let your submit button disappear
 
@@ -105,8 +100,8 @@ async function mainEvent() {
     An alternate notation would be "bracket notation" - arrayFromJson["data"]
     Dot notation is preferred in JS unless you have a good reason to use brackets
     The 'data' key, which we set at line 38 in foodServiceRoutes.js, contains all 1,000 records we need
-  */ 
- console.table(arrayFromJson.data);
+  */
+console.table(arrayFromJson.data);
 
   // in your browser console, try expanding this object to see what fields are available to work with
   // for example: arrayFromJson.data[0].name, etc
